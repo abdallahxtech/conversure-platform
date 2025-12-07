@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server"
 import { requireAuth } from "@/lib/auth"
 import { db } from "@/lib/db"
+import type { Prisma } from "@prisma/client"
 import Papa from "papaparse"
 
 interface ColumnMapping {
@@ -75,7 +76,7 @@ export async function POST(req: Request) {
 
     const contactsArray = Array.from(uniqueContacts.values())
 
-    const created = await db.$transaction(async (tx: any) => {
+    const created = await db.$transaction(async (tx: Prisma.TransactionClient) => {
   const results = []
 
   for (const contact of contactsArray) {
