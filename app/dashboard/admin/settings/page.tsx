@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { Badge } from "@/components/ui/badge"
+import { AutomationSettings } from "@/components/dashboard/AutomationSettings"
 import { 
   Settings, 
   Building2, 
@@ -15,7 +16,8 @@ import {
   CreditCard,
   Save,
   CheckCircle2,
-  AlertCircle
+  AlertCircle,
+  Zap
 } from "lucide-react"
 
 export default async function AdminSettingsPage() {
@@ -246,6 +248,24 @@ export default async function AdminSettingsPage() {
                 Save Bitrix24 Settings
               </Button>
             </div>
+          </CardContent>
+        </Card>
+
+        {/* Automation Settings */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Zap className="w-5 h-5" />
+              Automation Settings
+            </CardTitle>
+            <CardDescription>
+              Configure how AI assists your agents with message generation
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <AutomationSettings 
+              currentMode={companySettings?.messageGenerationMode || "MANUAL_COPILOT"} 
+            />
           </CardContent>
         </Card>
 

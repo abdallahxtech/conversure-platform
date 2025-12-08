@@ -7,6 +7,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { LeadsQuickActions } from "@/components/dashboard/LeadsQuickActions"
 import { 
   Users, 
   Search, 
@@ -303,20 +304,7 @@ export default async function AdminLeadsPage() {
             <CardDescription>Common lead management tasks</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="grid gap-4 md:grid-cols-3">
-              <Button variant="outline" className="justify-start">
-                <Users className="mr-2 h-4 w-4" />
-                Import Leads
-              </Button>
-              <Button variant="outline" className="justify-start">
-                <Download className="mr-2 h-4 w-4" />
-                Export to CSV
-              </Button>
-              <Button variant="outline" className="justify-start">
-                <TrendingUp className="mr-2 h-4 w-4" />
-                View Analytics
-              </Button>
-            </div>
+            <LeadsQuickActions leads={leads} />
           </CardContent>
         </Card>
       </div>

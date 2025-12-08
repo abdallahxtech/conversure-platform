@@ -100,10 +100,18 @@ enum WhatsappProvider {
   EVOLUTION  // Evolution API (WhatsApp Web gateway)
 }
 
+enum MessageGenerationMode {
+  AI_PILOT        // AI drafts and sends automatically
+  MANUAL_COPILOT  // AI drafts, agent approves before sending
+}
+
 model CompanySettings {
-  id                      String            @id @default(cuid())
-  companyId               String            @unique
-  whatsappProvider        WhatsappProvider  @default(WABA)
+  id                      String                  @id @default(cuid())
+  companyId               String                  @unique
+  whatsappProvider        WhatsappProvider        @default(WABA)
+  
+  // Automation Settings
+  messageGenerationMode   MessageGenerationMode   @default(MANUAL_COPILOT)
   
   // Chatwoot credentials (optional per company)
   chatwootBaseUrl         String?

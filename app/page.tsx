@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { MessageSquare, TrendingUp, Users, Zap, CheckCircle2, ArrowRight, BarChart3, Clock } from "lucide-react"
 import ContactForm from "@/components/ContactForm"
+import { PricingSection } from "@/components/PricingSection"
 
 export default function LandingPage() {
   return (
@@ -273,6 +274,9 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+
+      {/* Pricing Section */}
+      <PricingSection />
 
       {/* Contact Form Section */}
       <section id="contact" className="py-20 bg-gradient-to-b from-background to-muted/30">
